@@ -1,1 +1,1 @@
-# Annecy weather prediction
+# Annecy weather forecasting
