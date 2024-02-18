@@ -16,13 +16,18 @@ def dataset_uploader(project, normalized_dataset_df):
     Given the Hopsworks project and a normalized dataset, upload it to Hopsworks
     '''
     fs = project.get_feature_store()
-    pass
+    fg = fs.get_or_create_feature_group(
+        name="annecy-weather",
+        version=1,
+        primary_key=['date', 'time', 'dep_ap_iata_code', 'arr_ap_iata_code', 'flight_iata_number'], 
+        description="Annecy weather data")
+    fg.insert(normalized_dataset_df)
 
 
-hopsworks_api_key = os.environ['HOPSWORKS_API_KEY']
+hopsworks_api_key = os.environ["HOPSWORKS_API_KEY"]
 project = hopsworks.login(api_key_value = hopsworks_api_key)
 
-dataset_df            = pd.read_csv('/mnt/c/Developer/University/SML/sml-project-2023-manfredi-meneghin/datasets/join_dataset_smhi_zyla.csv')
-normalized_dataset_df = dataset_normalizer(dataset_df)
+dataset_df = pd.read_csv("/workspaces/Annecy_weather-prediction/datasets/annecy_weather_data_open_weather.csv")
+#normalized_dataset_df = dataset_normalizer(dataset_df)
 
-dataset_uploader(project, normalized_dataset_df)
+dataset_uploader(project, dataset_df)

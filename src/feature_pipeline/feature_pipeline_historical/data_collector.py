@@ -188,4 +188,4 @@ print(daily_dataframe)
 
 print("data Successfully collected from {} to {}".format(params["start_date"], todays_date))
 
-daily_dataframe.to_csv("annecy_weather_data_open_weather.csv", index=False, header=True)
+daily_dataframe.to_csv("/workspaces/Annecy_weather-prediction/datasets/annecy_weather_data_open_weather.csv", index=False, header=True)
