@@ -5,7 +5,7 @@ import hopsworks
 def dataset_normalizer(dataset_df):
     '''
     Given a dataset with the columns names extracted from the APIs data, return a dataset (dataframe)
-    with the name of the columns according to the feature group on Hopsworks
+    with the name of the columns according to the feature group on Hopsworks platform
     '''
 
     pass
